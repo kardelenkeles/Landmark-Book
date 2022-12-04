@@ -4,22 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:textAlignment="center"
     tools:context=".DetailsActivity">
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="235dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="50dp"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="241dp"
         android:layout_height="168dp"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="70dp" />
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:id="@+id/countryText"
+        android:layout_width="232dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="40dp"
+        android:text="Country"
+        android:textAlignment="center"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="285dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
