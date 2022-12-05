@@ -1,6 +1,7 @@
 package com.keles.landmarkbookjava;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,14 +29,17 @@ public class MainActivity extends AppCompatActivity {
         landmarkArraylist = new ArrayList<>();
         Landmark pisa = new Landmark("Pisa", "Italy", R.drawable.pisa);
         Landmark eiffel = new Landmark("Eiffel", "France", R.drawable.eiffel);
-        Landmark collesium = new Landmark("Collesium", "Italy", R.drawable.collesium);
+        Landmark colleseum = new Landmark("Colleseum", "Italy", R.drawable.colleseum);
         Landmark fuji = new Landmark("Fuji", "Japan", R.drawable.fuji);
 
         landmarkArraylist.add(pisa);
         landmarkArraylist.add(eiffel);
-        landmarkArraylist.add(collesium);
+        landmarkArraylist.add(colleseum);
         landmarkArraylist.add(fuji);
 
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Adapter landmarkAdapter = new Adapter(landmarkArraylist);
+        binding.recyclerView.setAdapter(landmarkAdapter);
 
     }
 }

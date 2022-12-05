@@ -1,32 +1,47 @@
 package com.keles.landmarkbookjava;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
+import com.keles.landmarkbookjava.databinding.RecyclerRowBinding;
+
+import java.util.ArrayList;
+
+public class Adapter extends RecyclerView.Adapter<Adapter.LandmarkHolder> {
+    ArrayList<Landmark> landmarkArrayList;
+
+    public Adapter(ArrayList<Landmark> landmarkArrayList) {
+        this.landmarkArrayList = landmarkArrayList;
+    }
+
     @NonNull
     @Override
-    public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public LandmarkHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        RecyclerRowBinding recyclerRowBinding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+        return new LandmarkHolder(recyclerRowBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Holder holder, int position) {
-
+    public void onBindViewHolder(@NonNull LandmarkHolder LandmarkHolder, int position) {
+        LandmarkHolder.binding.recyclerViewTextView.setText(landmarkArrayList.get(position).name);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return landmarkArrayList.size();
     }
 
-    public class Holder extends RecyclerView.ViewHolder{
+    public class LandmarkHolder extends RecyclerView.ViewHolder{
 
-        public Holder(@NonNull View itemView) {
-            super(itemView);
+        private RecyclerRowBinding binding;
+
+        public LandmarkHolder(RecyclerRowBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
 
         }
     }
